@@ -25,7 +25,7 @@ with st.form("Degelijkheidsform"):
                     min_value=0, max_value=100, step=10, key=f"vraag3-{person}")
         submit = st.form_submit_button()
         sub_session_state = {key: value for key, value in st.session_state.items() if "vraag" in key}
-        num_ones = sum(int(value == 1) for value in sub_session_state.values())
+        num_ones = sum(int(value == 0) for value in sub_session_state.values())
         if submit and num_ones > 18:
             st.warning("Vul de vragenlijst voor iedereen in")
         elif submit and num_ones < 18:

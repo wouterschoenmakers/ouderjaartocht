@@ -31,7 +31,7 @@ with st.form("Degelijkheidsform"):
         elif submit and num_ones < 18:
             with open(f"{user}.json", "w") as f:
                 json.dump(sub_session_state, f)
-            st.succes("lekker bezig homie")
+            st.success("lekker bezig homie")
 
 
             # df = pd.DataFrame(data=sub_session_state)

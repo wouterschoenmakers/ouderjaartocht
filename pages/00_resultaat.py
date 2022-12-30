@@ -9,7 +9,7 @@ to_go = [person for person in order if person+".json" not in json_files]
 
 st.error(f"De volgende mensen moeten de vragenlijst nog invullen:\n {', '.join(to_go)}")
 
-to_go = False
+
 if not to_go:
     all_data = []
     for file in json_files:
@@ -56,6 +56,7 @@ if not to_go:
                 abs(teams_df.drop(index="Wouter").loc[:, "Gemiddelde Score"] - teams_df.loc["Wouter", "Gemiddelde Score"]))].loc["Team"]
             fig = px.bar(teams_df,y="Gemiddelde Score",color="Team")
             st.plotly_chart(fig)
+
 
 
 

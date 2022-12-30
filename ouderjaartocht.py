@@ -16,13 +16,13 @@ with st.form("Degelijkheidsform"):
         for i, person in enumerate(order):
             tab = tabs[i]
             with tab:
-                vraag1 = st.slider(label=f"Op een schaal van 1 tot 10 hoe groot is de kans dat {person} op zaterdag met zijn vriendin op de bank blijft ipv met vrienden wat te doen?",
-                                    min_value=1,max_value=10,step=1,key=f"vraag1-{person}")
-                vraag2=st.slider(label=f"Op een schaal van 1 tot 10 hoe groot is de kans dat {person} niet alleen maar samen met zijn vriendin naar een feestje komt?",
-                                    min_value=1,max_value=10,step=1,key=f"vraag2-{person}")
+                vraag1 = st.slider(label=f"Hoe groot is de kans dat {person} op zaterdag met zijn vriendin op de bank blijft ipv met vrienden wat te doen? (Nooit - Altijd)",
+                                    min_value=0,max_value=100,step=10,key=f"vraag1-{person}")
+                vraag2=st.slider(label=f"Hoe groot is de kans dat {person} zijn vriendin meeneemt naar een feestje? (Nooit - Altijd)",
+                                    min_value=0,max_value=100,step=10,key=f"vraag2-{person}")
                 vraag3 = st.slider(
-                    label=f"Op een schaal van 1 tot 10 hoe vaak praat {person} in de wij vorm?",
-                    min_value=1, max_value=10, step=1, key=f"vraag3-{person}")
+                    label=f"Hoe vaak praat {person} in de wij vorm? (Nooit - Altijd)",
+                    min_value=0, max_value=100, step=10, key=f"vraag3-{person}")
         submit = st.form_submit_button()
         sub_session_state = {key: value for key, value in st.session_state.items() if "vraag" in key}
         num_ones = sum(int(value == 1) for value in sub_session_state.values())
